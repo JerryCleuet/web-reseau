@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Réseau & Web : version simplifiée" />
+  <title>Réseau & Web : version simplifiée</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.3 15.2A9 9 0 1 1 8.8 3.7a7 7 0 0 0 11.5 11.5Z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21M12 3C9.7 5.5 8.5 8.5 8.5 12S9.7 18.5 12 21"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="7" rx="2"/><rect x="4" y="14" width="16" height="7" rx="2"/><path d="M8 6.5h.01M8 17.5h.01M12 6.5h5M12 17.5h5"/></symbol>
+    <symbol id="i-router" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="8" rx="2"/><path d="M8 15h.01M12 15h.01M16 15h.01M8 11V8m8 3V8M6 6l2 2 2-2M14 6l2 2 2-2"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="m4 7 8-4 8 4-8 4-8-4Z"/><path d="m4 7 8 4 8-4v10l-8 4-8-4V7Z"/><path d="M12 11v10"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M5 21V4h14v17M3 21h18M9 8h2M13 8h2M9 12h2M13 12h2M9 16h2M13 16h2"/></symbol>
+    <symbol id="i-split" viewBox="0 0 24 24"><path d="M6 3v5c0 2 2 4 4 4h4c2 0 4 2 4 4v5M18 3v5c0 2-2 4-4 4h-4c-2 0-4 2-4 4v5"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v5h5M9 12h6M9 16h6"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l2-2a5 5 0 0 0-7-7l-1.2 1.2M14 11a5 5 0 0 0-7.5-.5l-2 2a5 5 0 0 0 7 7l1.2-1.2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.3-5.7L4 8.6M4 4v4.6h4.6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7h.01"/></symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M4 9a12 12 0 0 1 16 0M7 12.5a7.5 7.5 0 0 1 10 0M10 16a3 3 0 0 1 4 0M12 20h.01"/></symbol>
+  </svg>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navigation principale">
+      <div class="sidebar-top">
+        <a class="brand" href="#intro" aria-label="Réseau & Web : version simplifiée">
+          <span class="brand-mark"><svg><use href="#i-globe"/></svg></span>
+          <span><strong>Réseau & Web</strong><small>version simplifiée</small></span>
+        </a>
+        <button class="icon-btn sidebar-close" id="sidebarClose" aria-label="Fermer"><svg><use href="#i-x"/></svg></button>
+      </div>
+
+      <nav class="nav-groups">
+        <a class="nav-direct active" href="#intro"><span>Réseau & Web : version simplifiée</span></a>
+
+        <div class="nav-group open">
+          <button class="nav-group-toggle" aria-expanded="true"><span>Réseau & Web</span><svg><use href="#i-chevron"/></svg></button>
+          <div class="nav-group-links">
+            <a href="#ip">Adresse IP</a><a href="#dns">DNS</a><a href="#routeur">Routeur</a><a href="#paquets">Paquet réseau</a><a href="#tcp-udp">TCP/UDP</a><a href="#ports">Port</a><a href="#socket">Socket</a>
+          </div>
+        </div>
+
+        <div class="nav-group open">
+          <button class="nav-group-toggle" aria-expanded="true"><span>Internet</span><svg><use href="#i-chevron"/></svg></button>
+          <div class="nav-group-links">
+            <a href="#http">HTTP</a><a href="#url">URL</a><a href="#fai">FAI</a><a href="#internet">Internet</a>
+          </div>
+        </div>
+
+        <div class="nav-group open">
+          <button class="nav-group-toggle" aria-expanded="true"><span>Serveur</span><svg><use href="#i-chevron"/></svg></button>
+          <div class="nav-group-links">
+            <a href="#serveur">Serveur</a><a href="#datacenter">Datacenter</a><a href="#load-balancer">Load Balancer</a>
+          </div>
+        </div>
+
+        <div class="nav-group open">
+          <button class="nav-group-toggle" aria-expanded="true"><span>Moteur de recherche</span><svg><use href="#i-chevron"/></svg></button>
+          <div class="nav-group-links">
+            <a href="#crawler">Crawler</a><a href="#index">Index</a><a href="#moteur">Moteur de recherche</a>
+          </div>
+        </div>
+
+        <a class="nav-direct nav-highlight" href="#parcours"><span>2. Fonctionnement technique</span><svg><use href="#i-arrow"/></svg></a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+          <svg class="theme-icon sun"><use href="#i-sun"/></svg><svg class="theme-icon moon"><use href="#i-moon"/></svg>
+          <span>Changer de thème</span>
+        </button>
+        <small>Date de création : Mercredi 26 août<br>Auteur : Jerry Cleuet</small>
+      </div>
+    </aside>
+
+    <div class="sidebar-scrim" id="sidebarScrim"></div>
+
+    <main class="main">
+      <header class="mobile-header">
+        <button class="icon-btn" id="sidebarOpen" aria-label="Ouvrir"><svg><use href="#i-menu"/></svg></button>
+        <span>Réseau & Web</span>
+        <button class="icon-btn mobile-theme" id="mobileTheme" aria-label="Changer de thème"><svg><use href="#i-moon"/></svg></button>
+      </header>
+
+      <section class="hero section" id="intro" data-nav="Réseau & Web : version simplifiée">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="dot"></span> Date de création : Mercredi 26 août</div>
+          <h1>Réseau & Web :<br><em>version simplifiée</em></h1>
+          <p class="lead">Auteur : Jerry Cleuet</p>
+          <div class="source-intro">
+            <p>Dans cette page, tu trouveras :</p>
+            <ul><li>Des définitions simples pour comprendre les principaux termes techniques</li><li>Des schémas pour voir comment tous ces éléments fonctionnent ensemble</li></ul>
+          </div>
+          <div class="hero-actions"><a class="btn primary" href="#ip">1. Définitions</a><a class="btn ghost" href="#parcours">2. Schéma et relations</a></div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="network-card browser-card">
+            <div class="browser-bar"><span></span><span></span><span></span><div>google.com</div></div>
+            <div class="fake-search"><svg><use href="#i-search"/></svg><span>Acteurs Sterling Point</span><i></i></div>
+            <div class="result-lines"><span></span><span></span><span></span></div>
+          </div>
+          <div class="node node-a"><svg><use href="#i-router"/></svg></div>
+          <div class="node node-b"><svg><use href="#i-globe"/></svg></div>
+          <div class="node node-c"><svg><use href="#i-server"/></svg></div>
+          <svg class="hero-path" viewBox="0 0 600 440" preserveAspectRatio="none"><path d="M120 280 C210 210, 250 345, 330 260 S455 165, 520 205"/></svg>
+          <span class="travelling-dot"></span>
+        </div>
+      </section>
+
+      <section class="section overview-strip" aria-label="Découpé en grosses étapes">
+        <div class="phase"><span>01</span><div><strong>Actions du côté du client</strong><small>Recherche · Transformation en IP · Paquets · Routeur</small></div></div>
+        <div class="phase"><span>02</span><div><strong>Transport de l'information</strong><small>FAI · Internet · Réseau Google</small></div></div>
+        <div class="phase"><span>03</span><div><strong>Travail côté Google</strong><small>Load balancer · Serveurs · Index · Moteur de recherche · Résultats (tri) · Retour</small></div></div>
+        <div class="phase"><span>04</span><div><strong>Puis on reçoit la réponse</strong></div></div>
+      </section>
+
+      <section class="section content-section" id="ip" data-nav="Adresse IP">
+        <div class="section-heading"><h2>Adresse IP</h2><svg class="section-icon"><use href="#i-monitor"/></svg></div>
+        <div class="definition-grid">
+          <div class="prose"><p class="intro-line">Une adresse IP sert à identifier une machine sur un réseau. On peut la voir comme son numéro d’identification : ordinateur, imprimante, téléphone, etc. Tu croiseras surtout deux formats, IPv4 et IPv6. IPv6 est plus long et permet simplement d’avoir beaucoup plus d’adresses, car le nombre d’adresses IPv4 possibles est limité.</p><p>Il existe aussi deux types d’adresses : privées et publiques. Par exemple, l’adresse IP de ton Mac est généralement privée : elle n’est pas directement exposée à Internet. Pour accéder à Internet, tes appareils passent par le routeur, qui possède une adresse publique.</p></div>
+          <div class="demo-card ip-demo"><span class="demo-label">IPv4</span><code><b>192</b>.<b>168</b>.<b>1</b>.<b>42</b></code></div>
+        </div>
+      </section>
+
+      <section class="section content-section" id="dns" data-nav="DNS">
+        <div class="section-heading"><h2>DNS</h2><svg class="section-icon"><use href="#i-search"/></svg></div>
+        <div class="prose full-prose">
+          <div class="source-callout"><span>définition</span><strong>Annuaire d’Internet qui relie un nom de domaine à une adresse IP</strong></div>
+          <p>Un exemple sera plus parlant que 45 lignes de description :</p>
+          <p>Imaginons qu’on veuille aller chez la famille Bonzon, mais qu’on ne connaisse pas son adresse exacte. On ouvre l’annuaire et on trouve :</p>
+        </div>
+        <div class="demo-card dns-demo compact-demo"><div class="analogy-row"><span class="analogy-name">Famille Bonzon</span><svg><use href="#i-arrow"/></svg><span class="analogy-address">Route de Rolle 1, 1188 Gimel</span></div></div>
+        <div class="prose full-prose spaced-prose">
+          <p>Le DNS joue le même rôle sur Internet. Quand on tape <code>youtube.com</code> dans la barre d’adresse, l’ordinateur demande en gros à cet annuaire : « Quelle adresse IP correspond à youtube.com ? »</p>
+          <p>Personne n’a envie de retenir et de taper une adresse comme celle-ci pour aller sur Google :</p>
+          <div class="inline-source-example"><span>adresse-IP</span><code>142.250.74.14</code></div>
+          <p>Et c’est pareil pour tous les autres sites. On préfère évidemment taper :</p>
+          <div class="inline-source-example"><span>nom-de-domaine</span><code>google.com</code></div>
+          <p>Le <strong>DNS</strong> se charge alors de transformer ce <strong>nom de domaine</strong> en <strong>adresse IP</strong>.</p>
+        </div>
+        <div class="demo-card dns-transform"><strong>google.com</strong><svg><use href="#i-arrow"/></svg><span>DNS</span><svg><use href="#i-arrow"/></svg><strong>142.250.x.x</strong></div>
+        <div class="prose full-prose spaced-prose"><p>Cette traduction permet ensuite aux machines de savoir vers quelle adresse communiquer sur Internet.</p></div>
+      </section>
+
+      <section class="section content-section" id="routeur" data-nav="Routeur">
+        <div class="section-heading"><h2>Routeur</h2><svg class="section-icon"><use href="#i-router"/></svg></div>
+        <div class="prose full-prose"><p class="intro-line">Pour comprendre le rôle d’un routeur, imaginons qu’on veuille envoyer une lettre au Portugal. Le facteur de Gimel ne va évidemment pas rouler jusqu’à Albufeira avec sa camionnette. La lettre passe par plusieurs centres de tri, qui la redirigent progressivement vers sa destination. Internet fonctionne de manière assez similaire.</p><p>Le trajet peut se représenter comme ça :</p></div>
+        <div class="demo-card vertical-flow">
+          <div class="flow-node">Toi, qui donne ta lettre au facteur</div><i></i><div class="flow-node">Centre local de tri du courrier</div><i></i><div class="flow-node">Centre national</div><i></i><div class="flow-node">Centre international</div><i></i><div class="flow-node">Portugal</div><i></i><div class="flow-node">Albufeira</div><i></i><div class="flow-node accent">Chez mamie Fernanda</div>
+        </div>
+        <div class="prose full-prose spaced-prose"><p>Un <strong>routeur</strong>, c’est donc un point de passage pour les informations. Les données traversent généralement plusieurs routeurs avant d’arriver à destination.</p></div>
+      </section>
+
+      <section class="section content-section" id="paquets" data-nav="Paquet réseau">
+        <div class="section-heading"><h2>Paquet réseau</h2><svg class="section-icon"><use href="#i-box"/></svg></div>
+        <div class="definition-grid">
+          <div class="prose"><p class="intro-line">Sur Internet, les données ne sont généralement pas envoyées en un seul gros bloc. Elles sont découpées en petits morceaux appelés <strong>paquets</strong>.</p><p>Imagine qu’on doive envoyer une énorme encyclopédie. Plutôt que de faire un colis de 50 kg, on la répartit dans plusieurs petits colis. C’est le même principe ici : chaque paquet contient une partie des données, ainsi que les informations nécessaires à son transport :</p></div>
+          <div class="demo-card packet-card source-packet"><div class="packet-field"><small>source (lieu)</small></div><div class="packet-field"><small>destination (lieu)</small></div><div class="packet-field packet-data"><small>données (morceau d'encyclopédie)</small></div><div class="packet-field"><small>informations du protocole (moyen de transport (poste, FedEx...))</small></div></div>
+        </div>
+      </section>
+
+      <section class="section content-section" id="tcp-udp" data-nav="TCP/UDP">
+        <div class="section-heading"><h2>TCP/UDP</h2><svg class="section-icon"><use href="#i-split"/></svg></div>
+        <div class="prose full-prose"><p class="intro-line">TCP et UDP sont deux protocoles utilisés pour transporter des paquets. Pour garder l’analogie du colis, on peut les comparer à deux services de livraison, comme FedEx ou UPS, mais avec des priorités différentes.</p></div>
+        <div class="protocol-switch" role="tablist" aria-label="TCP/UDP"><button class="active" data-protocol="tcp" role="tab" aria-selected="true">TCP</button><button data-protocol="udp" role="tab" aria-selected="false">UDP</button></div>
+        <div class="protocol-panel source-protocol" id="protocolPanel">
+          <div class="protocol-visual"><div class="proto-route"><span class="proto-source">TCP</span><i class="proto-line"><b></b></i><span class="proto-source">UDP</span></div></div>
+          <div class="protocol-copy"><h3 id="protoTitle">TCP</h3><dl><div><dt>Avantage</dt><dd id="protoAdv">Accusé de réception, transport fiable</dd></div><div><dt>Désavantage</dt><dd id="protoCon">Lourd (dû aux mécanismes de fiabilité)</dd></div><div><dt>Utilisation</dt><dd id="protoUse">Emails, transfert de fichiers, HTTP/HTTPS, SSH</dd></div></dl></div>
+        </div>
+        <div class="prose full-prose spaced-prose"><p>TCP commence aussi par établir une connexion avant d’envoyer les données pour de vrai.</p><p>En simplifiant, l’échange ressemble à ça :</p></div>
+        <div class="demo-card handshake-flow"><div>TCP → Serveur : "Je veux établir une connexion"</div><i></i><div>Serveur → TCP : "Oui, je t'ai entendu"</div><i></i><div>TCP → Serveur : "Parfait, connexion établie"</div><i></i><div class="accent">Et ensuite il envoie les données</div></div>
+      </section>
+
+      <section class="section content-section" id="ports" data-nav="Port">
+        <div class="section-heading"><h2>Port</h2><svg class="section-icon"><use href="#i-building"/></svg></div>
+        <div class="definition-grid">
+          <div class="prose"><p class="intro-line">L’adresse IP permet de trouver une machine ; le port permet ensuite de viser précisément <strong>un service</strong> sur cette machine. On peut imaginer la machine comme un immeuble : chaque appartement possède un numéro, et ce numéro correspond au port.</p><p>PC = immeuble<br>Port = numéro d'appartement<br>Personne = serveur</p><p>Si on veut livrer un colis à une personne précise, il faut donc connaître l’immeuble <strong>et</strong> le numéro de son appartement. Sur un réseau, c’est la même idée : adresse IP + port.</p><p>Dans cette analogie, un appartement correspond à un seul service : un même port ne peut pas être utilisé en même temps par plusieurs services de la même manière.</p></div>
+          <div class="demo-card building-demo source-building"><div class="building"><div class="roof">PC = immeuble</div><div class="apartments"><button>Port =<small>numéro d'appartement</small></button><button class="active">Personne =<small>serveur</small></button></div></div><code>192.168.1.1:<strong>3000</strong></code></div>
+        </div>
+      </section>
+
+      <section class="section content-section" id="socket" data-nav="Socket">
+        <div class="section-heading"><h2>Socket</h2><svg class="section-icon"><use href="#i-link"/></svg></div>
+        <div class="definition-grid"><div class="prose"><p class="intro-line">Un socket, c’est simplement la combinaison suivante :</p></div><div class="demo-card socket-demo"><code>IP:port + protocole</code><code>192.168.1.1:3000 TCP</code></div></div>
+      </section>
+
+      <section class="section content-section" id="http" data-nav="HTTP">
+        <div class="section-heading"><h2>HTTP</h2><svg class="section-icon"><use href="#i-link"/></svg></div>
+        <div class="prose full-prose"><p class="intro-line">HTTP est encore un protocole, mais son rôle est différent : il définit la manière dont un client et un serveur échangent des requêtes et des réponses. Par exemple :</p></div>
+        <div class="demo-card http-exchange"><code>GET /products</code><svg><use href="#i-arrow"/></svg><code>200 OK</code></div>
+        <div class="prose full-prose spaced-prose"><p><code>GET /products</code> veut simplement dire : « Donne-moi la ressource /products ». Le serveur peut alors répondre :</p><p>Les codes HTTP permettent de comprendre rapidement ce qui s’est passé. Les codes de 200 à 299 indiquent un succès, ceux de 400 à 499 une erreur côté client, et ceux de 500 à 599 une erreur côté serveur. En gros, ils permettent de savoir immédiatement si tout s’est bien passé ou de quel côté vient le problème.</p><p>HTTP définit plusieurs méthodes pour indiquer au serveur ce que l’on souhaite faire :</p></div>
+        <div class="source-table-wrap"><table class="source-table"><thead><tr><th>Méthode</th><th>Utilisation</th><th>Exemple réel</th></tr></thead><tbody><tr><td>GET</td><td>Récupérer de l'information</td><td>GET /products =&gt; récupère des produits</td></tr><tr><td>POST</td><td>Créer de l'information</td><td>POST /products/id =&gt; crée un produit</td></tr><tr><td>PUT</td><td>Remplacer de l'information</td><td>PUT /products/id =&gt; remplace un produit en particulier</td></tr><tr><td>PATCH</td><td>Modifier de l'information</td><td>PATCH /product/id =&gt; modifie un produit en particulier</td></tr><tr><td>DELETE</td><td>Supprimer de l'information</td><td>DELETE /product/id =&gt; supprimer un produit en particulier</td></tr></tbody></table></div>
+        <div class="prose full-prose spaced-prose"><p>Évidemment, c’est toujours le serveur qui décide si une action est autorisée. Écrire <code>DELETE</code> ne transforme pas subitement quelqu’un en dieu tout-puissant : chaque serveur applique ses propres règles et vérifie les droits de l’utilisateur.</p></div>
+      </section>
+
+      <section class="section content-section" id="url" data-nav="URL">
+        <div class="section-heading"><h2>URL</h2><svg class="section-icon"><use href="#i-link"/></svg></div>
+        <div class="prose full-prose"><p class="intro-line">Prenons cette URL comme exemple :</p></div>
+        <div class="url-lab">
+          <div class="url-string" aria-label="https://example.com:443/products?id=42"><button data-urlpart="protocol">https</button><span>://</span><button data-urlpart="domain">example.com</button><span>:</span><button data-urlpart="port">443</button><button data-urlpart="path">/products</button><button data-urlpart="params">?id=42</button></div>
+          <div class="url-explanation" id="urlExplanation"></div>
+        </div>
+        <div class="prose full-prose spaced-prose"><p>Si on la découpe, chaque partie a un rôle précis :</p></div>
+        <div class="url-source-list"><div>https : protocole</div><div>example.com : nom de domaine</div><div>443 : port</div><div>/products : chemin</div><div>?id=42 : paramètres</div></div>
+      </section>
+
+      <section class="section content-section" id="fai" data-nav="FAI">
+        <div class="section-heading"><h2>FAI</h2><svg class="section-icon"><use href="#i-wifi"/></svg></div>
+        <div class="definition-grid"><div class="prose"><p class="intro-line">FAI signifie <strong>fournisseur d’accès à Internet</strong>. Ton ordinateur n’est pas directement branché à Internet : il passe d’abord par ton routeur, puis par ton FAI. C’est par exemple ce qui se produit lorsque tu fais une recherche Google.</p><p>Quelques exemples en Suisse :</p><p>On peut voir le FAI comme un centre de passage beaucoup plus important. Il reçoit le trafic provenant de nombreux clients et l’envoie vers d’autres réseaux pour le rapprocher de sa destination.</p><p>Pour reprendre l’analogie du courrier : le routeur de la maison serait la petite poste de Gimel, tandis que le FAI ressemblerait davantage à un grand centre de tri régional ou national.</p></div><div class="demo-card fai-demo source-fai"><div class="fai-node accent"><svg><use href="#i-globe"/></svg><strong>Swisscom</strong></div><div class="fai-node"><svg><use href="#i-globe"/></svg><strong>Sunrise</strong></div><div class="fai-node"><svg><use href="#i-globe"/></svg><strong>Salt</strong></div></div></div>
+      </section>
+
+      <section class="section content-section" id="internet" data-nav="Internet">
+        <div class="section-heading"><h2>Internet</h2><svg class="section-icon"><use href="#i-globe"/></svg></div>
+        <div class="prose full-prose"><p class="intro-line">Internet n’est ni un énorme serveur unique, ni quelque chose de magique. L’idée générale est finalement assez simple :</p><p>Internet est un immense ensemble de réseaux connectés entre eux. Une machine est reliée à un routeur, ce routeur à un fournisseur, ce fournisseur à d’autres réseaux et à d’autres routeurs… et ainsi de suite, à une échelle gigantesque.</p><p>Un réseau peut pourtant être très simple : un ordinateur, une box Wi-Fi et un câble suffisent déjà à former un petit réseau. Internet relie simplement un nombre colossal de réseaux de ce genre entre eux.</p><p>Et tout ce trafic passe bien par du matériel physique :</p></div>
+        <div class="physical-grid"><div><svg><use href="#i-router"/></svg><span>routeurs</span></div><div><svg><use href="#i-link"/></svg><span>câbles Ethernet</span></div><div><svg><use href="#i-globe"/></svg><span>fibre optique (des câbles qui transportent les données grâce à la lumière)</span></div><div><svg><use href="#i-globe"/></svg><span>câbles sous-marins</span></div><div><svg><use href="#i-wifi"/></svg><span>antennes / Wi-Fi</span></div></div>
+        <div class="prose full-prose spaced-prose"><p>Une simple recherche Google peut donc, à un moment de son trajet, être transportée sous forme de signal lumineux dans une fibre optique sur des kilomètres.</p></div>
+      </section>
+
+      <section class="section content-section" id="serveur" data-nav="Serveur">
+        <div class="section-heading"><h2>Serveur</h2><svg class="section-icon"><use href="#i-server"/></svg></div>
+        <div class="prose full-prose"><p class="intro-line">Le mot « serveur » peut donner l’impression de désigner quelque chose de très complexe. Pourtant, l’idée est assez proche d’un serveur de restaurant : il reçoit une demande et fournit quelque chose en retour. En informatique, un <strong>serveur</strong> est généralement une machine ou un <strong>programme</strong> qui fournit un <strong>service</strong> à d’autres machines ou programmes.</p></div>
+        <div class="demo-card simple-flow"><div>On fait une recherche Google :<br><strong>"Acteurs Sterling Point"</strong></div><i></i><div class="accent">Le serveur Google sert les résultats correspondant à la recherche.</div></div>
+        <div class="prose full-prose spaced-prose"><p>La machine ou le programme qui demande ce service est appelé <strong>client</strong>. Lors d’une recherche Google, ton navigateur joue donc le rôle du client.</p><p>Un serveur n’est d’ailleurs pas forcément une énorme machine à plusieurs dizaines de milliers de francs : un PC tout à fait classique peut faire tourner un programme serveur.</p></div>
+      </section>
+
+      <section class="section content-section" id="datacenter" data-nav="Datacenter">
+        <div class="section-heading"><h2>Datacenter</h2><svg class="section-icon"><use href="#i-building"/></svg></div>
+        <div class="prose full-prose"><p class="intro-line">Une entreprise comme Google ne pose évidemment pas ses serveurs sur une étagère à côté de la machine à café en mode balec. Quand on possède énormément de machines coûteuses, importantes et qui chauffent beaucoup, il faut un endroit prévu pour les héberger : le <strong>datacenter</strong>.</p><p>Un datacenter est donc un bâtiment conçu pour accueillir une énorme quantité de matériel informatique :</p></div>
+        <div class="physical-grid datacenter-grid"><div><svg><use href="#i-server"/></svg><span>serveurs</span></div><div><svg><use href="#i-database"/></svg><span>stockage</span></div><div><svg><use href="#i-router"/></svg><span>équipements réseau</span></div><div><svg><use href="#i-wifi"/></svg><span>refroidissements</span></div><div><svg><use href="#i-link"/></svg><span>alimentations électriques</span></div><div><svg><use href="#i-building"/></svg><span>systèmes de secours</span></div></div>
+        <div class="prose full-prose spaced-prose"><p>Quand on parle de « cloud » — OneDrive par exemple — les fichiers ne flottent évidemment pas dans le ciel. Ils sont toujours stockés physiquement quelque part, le plus souvent dans des datacenters.</p><p>En simplifiant, le cloud revient donc à utiliser à distance du stockage et des services fournis par les machines physiques d’une entreprise.</p></div>
+      </section>
+
+      <section class="section content-section" id="load-balancer" data-nav="Load Balancer">
+        <div class="section-heading"><h2>Load Balancer</h2><svg class="section-icon"><use href="#i-split"/></svg></div>
+        <div class="prose full-prose"><p class="intro-line">Google reçoit un nombre énorme de requêtes en permanence : environ 100’000 recherches par seconde, soit plusieurs milliards par jour. Tout envoyer vers un seul serveur serait évidemment impossible ; il faudrait une machine absolument monstrueuse pour supporter une telle charge en continu.</p><p>On répartit donc le travail entre de nombreux serveurs — environ 2,5 millions dans le monde pour Google. C’est là qu’interviennent les <strong>load balancers</strong> : ils distribuent les requêtes entre les serveurs disponibles. Si l’un est déjà très occupé et qu’un autre est plus libre, la prochaine requête sera plutôt envoyée vers le second.</p><p>On peut l’imaginer comme la personne qui accueille les clients dans un restaurant et les dirige vers les tables disponibles.</p></div>
+        <div class="load-lab"><div class="request-station"><button class="btn primary" id="sendRequest"><svg><use href="#i-arrow"/></svg> Envoyer une requête</button></div><div class="lb-center"><div class="lb-box"><svg><use href="#i-split"/></svg><strong>Load Balancer</strong></div></div><div class="server-grid" id="serverGrid"><div class="server-box" data-server="0"><svg><use href="#i-server"/></svg><strong>Serveur</strong><div class="server-load"><i></i></div><small><b>0</b></small></div><div class="server-box" data-server="1"><svg><use href="#i-server"/></svg><strong>Serveur</strong><div class="server-load"><i></i></div><small><b>0</b></small></div><div class="server-box" data-server="2"><svg><use href="#i-server"/></svg><strong>Serveur</strong><div class="server-load"><i></i></div><small><b>0</b></small></div></div></div>
+      </section>
+
+      <section class="section content-section" id="crawler" data-nav="Crawler">
+        <div class="section-heading"><h2>Crawler</h2><svg class="section-icon"><use href="#i-globe"/></svg></div>
+        <div class="definition-grid"><div class="prose"><p class="intro-line">Quand on lance une recherche Google, Google ne se met pas à parcourir tout Internet à cet instant précis. Une grande partie de ce travail a déjà été faite par des programmes appelés <strong>crawlers</strong>, aussi appelés bots ou spiders. Ils parcourent les pages et suivent les liens qu’ils rencontrent pour découvrir de nouveaux contenus.</p><p>Par exemple, un crawler peut passer d’une page Wikipédia sur un record sportif à une autre page consacrée au sport grâce à un simple lien. De cette manière, Google découvre progressivement énormément de pages à l’avance.</p></div><div class="demo-card crawler-demo source-crawler"><button class="page-node active">lien wikipédia d'un record sportif</button><span>→</span><button class="page-node">page de sport</button><div class="crawler-dot">crawler</div></div></div>
+      </section>
+
+      <section class="section content-section" id="index" data-nav="Index">
+        <div class="section-heading"><h2>Index</h2><svg class="section-icon"><use href="#i-database"/></svg></div>
+        <div class="definition-grid"><div class="prose"><p class="intro-line">Une fois les pages découvertes par les crawlers, leurs informations peuvent être enregistrées dans un <strong>index</strong>. On peut voir cet index comme un immense catalogue de pages web.</p><p>Quand on effectue une recherche, Google consulte principalement cet index au lieu de rescanner Internet entier. C’est ce qui lui permet de répondre beaucoup plus rapidement.</p><p>Sans cet index, il faudrait parcourir une quantité gigantesque de pages au moment de chaque recherche avant de trouver les résultats intéressants.</p></div><div class="demo-card index-visual"><svg><use href="#i-database"/></svg><strong>index</strong><span>immense catalogue</span></div></div>
+      </section>
+
+      <section class="section content-section" id="moteur" data-nav="Moteur de recherche">
+        <div class="section-heading"><h2>Moteur de recherche</h2><svg class="section-icon"><use href="#i-search"/></svg></div>
+        <div class="prose full-prose"><p class="intro-line">Le moteur de recherche est le système qui va chercher dans cet index. Très grossièrement, lorsqu’on lance une recherche, il suit ce processus :</p></div>
+        <div class="demo-card horizontal-flow"><div>Recherche utilisateur</div><i></i><div>Recherche dans l'index</div><i></i><div>Trouve plusieurs pages</div><i></i><div>Les classe</div><i></i><div class="accent">Renvoie les résultats</div></div>
+        <div class="prose full-prose spaced-prose"><p>Il utilise évidemment de nombreux critères pour classer les pages trouvées et placer les résultats qu’il estime les plus pertinents en premier.</p></div>
+      </section>
+
+      <section class="section journey-section" id="parcours" data-nav="2. Fonctionnement technique">
+        <div class="journey-heading"><h2>2. Fonctionnement technique</h2><p>Maintenant que chaque élément a été présenté séparément, on peut les remettre ensemble pour voir comment ils s’enchaînent.</p><p>Voici le parcours simplifié d’une recherche Google :</p><div class="journey-controls"><button class="btn primary" id="journeyPlay"><svg><use href="#i-play"/></svg> Lancer la recherche</button><button class="btn ghost" id="journeyReset"><svg><use href="#i-reset"/></svg> Réinitialiser</button></div></div>
+        <div class="journey-app">
+          <div class="journey-phases"><span>Actions du côté du client</span><span>Transport de l'information</span><span>Travail côté Google</span><span>Puis on reçoit la réponse</span></div>
+          <div class="journey-track-wrap"><div class="journey-track" id="journeyTrack"></div></div>
+          <div class="journey-detail" id="journeyDetail"></div>
+        </div>
+      </section>
+
+      <footer><p>Réseau & Web : version simplifiée</p><small>Date de création : Mercredi 26 août · Auteur : Jerry Cleuet</small></footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
