@@ -15,6 +15,19 @@
   setTheme(initialTheme);
   [themeToggle, mobileTheme].forEach(btn => btn?.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark')));
 
+  // Do not let the browser restore a previous vertical position on refresh/back-forward cache.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  const forceInitialTop = () => {
+    history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', forceInitialTop, { once: true });
+  } else {
+    forceInitialTop();
+  }
+  window.addEventListener('pageshow', forceInitialTop, { once: true });
+
   const sidebar = document.getElementById('sidebar');
   const scrim = document.getElementById('sidebarScrim');
   const openSidebar = () => { sidebar.classList.add('open'); scrim.classList.add('show'); };
@@ -22,7 +35,23 @@
   document.getElementById('sidebarOpen')?.addEventListener('click', openSidebar);
   document.getElementById('sidebarClose')?.addEventListener('click', closeSidebar);
   scrim?.addEventListener('click', closeSidebar);
-  sidebar.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { if (innerWidth <= 980) closeSidebar(); }));
+  // Internal navigation is handled without keeping a #hash in the URL.
+  // This prevents mobile browsers from reopening the page on the last anchor after refresh.
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', event => {
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      event.preventDefault();
+      if (innerWidth <= 980 && sidebar.contains(a)) closeSidebar();
+
+      const mobileHeader = document.querySelector('.mobile-header');
+      const headerOffset = innerWidth <= 980 && mobileHeader ? mobileHeader.offsetHeight + 10 : 20;
+      const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerOffset);
+      window.scrollTo({ top, left: 0, behavior: 'smooth' });
+      history.replaceState(null, '', location.pathname + location.search);
+    });
+  });
 
   document.querySelectorAll('.nav-group-toggle').forEach(button => {
     button.addEventListener('click', () => {
