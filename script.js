@@ -134,14 +134,14 @@
       node.className = `journey-node${step.return ? ' return' : ''}`;
       node.dataset.index = i;
       node.innerHTML = `<button aria-label="${step.name}"><svg><use href="${step.icon}"/></svg></button><small>${step.name}</small>`;
-      node.addEventListener('click', () => { stopJourney(); setJourney(i); });
+      node.addEventListener('click', () => { stopJourney(); setJourney(i, { center: true }); });
       journeyTrack.appendChild(node);
     });
     const packet = document.createElement('span');
     packet.className = 'journey-packet'; packet.id = 'journeyPacket'; journeyTrack.appendChild(packet);
-    setJourney(0);
+    setJourney(0, { center: false });
   }
-  function setJourney(index) {
+  function setJourney(index, { center = false, behavior = 'smooth' } = {}) {
     currentStep = index;
     const nodes = [...journeyTrack.querySelectorAll('.journey-node')];
     nodes.forEach((n,i) => { n.classList.toggle('active', i === index); n.classList.toggle('done', i < index); });
@@ -150,7 +150,18 @@
     const packet = document.getElementById('journeyPacket');
     const node = nodes[index];
     if (packet && node) packet.style.left = `${node.offsetLeft + node.offsetWidth/2 - 4.5}px`;
-    node?.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+
+    // Important on mobile: scrollIntoView() also moves the page vertically.
+    // Mobile browsers fire resize events when their address bar appears/disappears,
+    // which used to pull the user back to the Journey at the bottom of the page.
+    // Only center the node horizontally inside the Journey's own scroll container.
+    if (center && node) {
+      const wrap = journeyTrack.closest('.journey-track-wrap');
+      if (wrap) {
+        const targetLeft = node.offsetLeft + node.offsetWidth / 2 - wrap.clientWidth / 2;
+        wrap.scrollTo({ left: Math.max(0, targetLeft), behavior });
+      }
+    }
   }
   function stopJourney() {
     clearTimeout(journeyTimer);
@@ -161,16 +172,16 @@
   function advanceJourney() {
     if (!journeyRunning) return;
     if (currentStep >= journeySteps.length - 1) { stopJourney(); return; }
-    journeyTimer = setTimeout(() => { setJourney(currentStep + 1); advanceJourney(); }, 1050);
+    journeyTimer = setTimeout(() => { setJourney(currentStep + 1, { center: true }); advanceJourney(); }, 1050);
   }
   document.getElementById('journeyPlay')?.addEventListener('click', () => {
     if (journeyRunning) { stopJourney(); return; }
-    if (currentStep >= journeySteps.length - 1) setJourney(0);
+    if (currentStep >= journeySteps.length - 1) setJourney(0, { center: true });
     journeyRunning = true;
     document.getElementById('journeyPlay').innerHTML = '<svg><use href="#i-x"/></svg> Arrêter';
     advanceJourney();
   });
-  document.getElementById('journeyReset')?.addEventListener('click', () => { stopJourney(); setJourney(0); });
-  addEventListener('resize', () => { if (journeyTrack) setJourney(currentStep); });
+  document.getElementById('journeyReset')?.addEventListener('click', () => { stopJourney(); setJourney(0, { center: true }); });
+  addEventListener('resize', () => { if (journeyTrack) setJourney(currentStep, { center: false, behavior: 'auto' }); });
   buildJourney();
 })();
